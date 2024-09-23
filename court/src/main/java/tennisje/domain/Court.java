@@ -44,7 +44,7 @@ public class Court {
     }
 
     //<<< Clean Arch / Port Method
-    public static void decreaseCourt(MachineStarted machineStarted) {
+    public static void decreaseCourt(MachineCleaned machineCleaned) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -59,7 +59,7 @@ public class Court {
 
         /** Example 2:  finding and process
         
-        repository().findById(machineStarted.get???()).ifPresent(court->{
+        repository().findById(machineCleaned.get???()).ifPresent(court->{
             
             court // do something
             repository().save(court);
@@ -76,7 +76,7 @@ public class Court {
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
-    public static void increaseCourt(MachineStopped machineStopped) {
+    public static void increaseCourt(CourtCanceled courtCanceled) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -89,7 +89,7 @@ public class Court {
 
         /** Example 2:  finding and process
         
-        repository().findById(machineStopped.get???()).ifPresent(court->{
+        repository().findById(courtCanceled.get???()).ifPresent(court->{
             
             court // do something
             repository().save(court);

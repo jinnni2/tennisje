@@ -25,14 +25,14 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='MachineStarted'"
+        condition = "headers['type']=='MachineCleaned'"
     )
-    public void wheneverMachineStarted_DecreaseCourt(
-        @Payload MachineStarted machineStarted
+    public void wheneverMachineCleaned_DecreaseCourt(
+        @Payload MachineCleaned machineCleaned
     ) {
-        MachineStarted event = machineStarted;
+        MachineCleaned event = machineCleaned;
         System.out.println(
-            "\n\n##### listener DecreaseCourt : " + machineStarted + "\n\n"
+            "\n\n##### listener DecreaseCourt : " + machineCleaned + "\n\n"
         );
 
         // Sample Logic //
@@ -41,14 +41,14 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='MachineStopped'"
+        condition = "headers['type']=='CourtCanceled'"
     )
-    public void wheneverMachineStopped_IncreaseCourt(
-        @Payload MachineStopped machineStopped
+    public void wheneverCourtCanceled_IncreaseCourt(
+        @Payload CourtCanceled courtCanceled
     ) {
-        MachineStopped event = machineStopped;
+        CourtCanceled event = courtCanceled;
         System.out.println(
-            "\n\n##### listener IncreaseCourt : " + machineStopped + "\n\n"
+            "\n\n##### listener IncreaseCourt : " + courtCanceled + "\n\n"
         );
 
         // Sample Logic //

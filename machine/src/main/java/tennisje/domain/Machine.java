@@ -6,8 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import tennisje.MachineApplication;
-import tennisje.domain.MachineStarted;
-import tennisje.domain.MachineStopped;
+import tennisje.domain.MachineCleaned;
 
 @Entity
 @Table(name = "Machine_table")
@@ -25,11 +24,8 @@ public class Machine {
 
     @PostUpdate
     public void onPostUpdate() {
-        MachineStarted machineStarted = new MachineStarted(this);
-        machineStarted.publishAfterCommit();
-
-        MachineStopped machineStopped = new MachineStopped(this);
-        machineStopped.publishAfterCommit();
+        MachineCleaned machineCleaned = new MachineCleaned(this);
+        machineCleaned.publishAfterCommit();
     }
 
     public static MachineRepository repository() {
@@ -40,15 +36,15 @@ public class Machine {
     }
 
     //<<< Clean Arch / Port Method
-    public static void startMachine(CourtReserved courtReserved) {
+    public static void cleanMachine(CourtReserved courtReserved) {
         //implement business logic here:
 
         /** Example 1:  new item 
         Machine machine = new Machine();
         repository().save(machine);
 
-        MachineStarted machineStarted = new MachineStarted(machine);
-        machineStarted.publishAfterCommit();
+        MachineCleaned machineCleaned = new MachineCleaned(machine);
+        machineCleaned.publishAfterCommit();
         */
 
         /** Example 2:  finding and process
@@ -58,36 +54,8 @@ public class Machine {
             machine // do something
             repository().save(machine);
 
-            MachineStarted machineStarted = new MachineStarted(machine);
-            machineStarted.publishAfterCommit();
-
-         });
-        */
-
-    }
-
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
-    public static void stopMachine(CourtCanceled courtCanceled) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Machine machine = new Machine();
-        repository().save(machine);
-
-        MachineStopped machineStopped = new MachineStopped(machine);
-        machineStopped.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(courtCanceled.get???()).ifPresent(machine->{
-            
-            machine // do something
-            repository().save(machine);
-
-            MachineStopped machineStopped = new MachineStopped(machine);
-            machineStopped.publishAfterCommit();
+            MachineCleaned machineCleaned = new MachineCleaned(machine);
+            machineCleaned.publishAfterCommit();
 
          });
         */

@@ -27,32 +27,16 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='CourtReserved'"
     )
-    public void wheneverCourtReserved_StartMachine(
+    public void wheneverCourtReserved_CleanMachine(
         @Payload CourtReserved courtReserved
     ) {
         CourtReserved event = courtReserved;
         System.out.println(
-            "\n\n##### listener StartMachine : " + courtReserved + "\n\n"
+            "\n\n##### listener CleanMachine : " + courtReserved + "\n\n"
         );
 
         // Sample Logic //
-        Machine.startMachine(event);
-    }
-
-    @StreamListener(
-        value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='CourtCanceled'"
-    )
-    public void wheneverCourtCanceled_StopMachine(
-        @Payload CourtCanceled courtCanceled
-    ) {
-        CourtCanceled event = courtCanceled;
-        System.out.println(
-            "\n\n##### listener StopMachine : " + courtCanceled + "\n\n"
-        );
-
-        // Sample Logic //
-        Machine.stopMachine(event);
+        Machine.cleanMachine(event);
     }
 }
 //>>> Clean Arch / Inbound Adaptor
