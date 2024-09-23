@@ -16,9 +16,8 @@
 
 
 ## 클라우드 네이티브 개발 MSA (Dev)
-- 분산트랜잭션 - Saga<br>
-  
-  1)코트정보를 생성한다<br>
+- 분산트랜잭션 - Saga
+1)코트정보를 생성한다<br>
   
 http POST localhost:8084/courts courtName="serve" qty="2"<br>
 ![스크린샷 2024-09-24 오전 12 30 55](https://github.com/user-attachments/assets/dfa15d40-d07b-4ce4-9bc1-2b2a72211b76) <br>
