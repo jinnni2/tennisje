@@ -57,20 +57,20 @@ http get localhost:8082/reserves/4<br>
 
 - 단일 진입점 - Gateway<br>
 
-1)8088 port로 코트 정보 얻기<br>
-
-http get localhost:8088/courts/1
-![스크린샷 2024-09-24 오전 1 26 20](https://github.com/user-attachments/assets/d9984735-54a8-4848-b142-7f879e01ca48)<br>
-
-2)8088 port로 예약 정보 얻기<br>
+1)8088 port로 예약 정보 얻기<br>
 
 http get localhost:8088/reserves/1<br>
 ![스크린샷 2024-09-24 오전 1 27 58](https://github.com/user-attachments/assets/6d92410e-4195-4c96-80a1-f43e2e8c510d)<br>
 
-3)8088 port로 볼머신 정보 얻기<br>
+2)8088 port로 볼머신 정보 얻기<br>
 
 http get localhost:8088/machines/1<br>
 ![스크린샷 2024-09-24 오전 1 26 52](https://github.com/user-attachments/assets/02c505ca-72fc-4c84-a458-30437ed88f89)<br>
+
+3)8088 port로 코트 정보 얻기<br>
+
+http get localhost:8088/courts/1<br>
+![스크린샷 2024-09-24 오전 1 26 20](https://github.com/user-attachments/assets/d9984735-54a8-4848-b142-7f879e01ca48)<br>
 
 - 분산 데이터 프로젝션 - CQRS<br>
 
