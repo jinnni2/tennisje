@@ -17,12 +17,12 @@
 
 ## 클라우드 네이티브 개발 MSA (Dev)
 - 분산트랜잭션 - Saga
-  1) 코트정보를 생성한다<br>
+  1)코트정보를 생성한다<br>
   
 http POST localhost:8084/courts courtName="serve" qty="2"<br>
 ![스크린샷 2024-09-24 오전 12 30 55](https://github.com/user-attachments/assets/dfa15d40-d07b-4ce4-9bc1-2b2a72211b76) <br>
 
-  2) 코트를 예약하면, 볼머신이 청소되고 사용가능한 코트가 줄어든다<br>
+  2)코트를 예약하면, 볼머신이 청소되고 사용가능한 코트가 줄어든다<br>
   
 http POST localhost:8082/reserves userId="1" courtId="1" courtName="serve" <br>
 ![스크린샷 2024-09-24 오전 12 37 33](https://github.com/user-attachments/assets/310cf5e9-dcc8-4dd2-99b4-dc1a85ded72f) <br>
@@ -33,7 +33,7 @@ http get localhost:8083/machines<br>
 http get localhost:8084/courts<br>
 ![스크린샷 2024-09-24 오전 12 43 09](https://github.com/user-attachments/assets/c3c5ce29-4907-4c80-b1b8-418a07bb14b7) <br>
 
-  4) 코트를 취소하면, 사용가능한 코트가 늘어난다<br>
+  3)코트를 취소하면, 사용가능한 코트가 늘어난다<br>
   
 http PATCH localhost:8082/reserves/1 status="end"<br>
 ![스크린샷 2024-09-24 오전 12 46 38](https://github.com/user-attachments/assets/7f7d312b-c231-4ffa-a420-af36bd5696f1) <br>
@@ -42,7 +42,7 @@ http get localhost:8084/courts<br>
 ![스크린샷 2024-09-24 오전 12 47 44](https://github.com/user-attachments/assets/865871e6-fb06-4ade-85c2-0331a04e5eb9) <br>
 
 - 보상처리 - Compensation
-  1) 예약가능한 코트가 없는 경우, 예약이 실패처리된다<br>
+  1)예약가능한 코트가 없는 경우, 예약이 실패처리된다<br>
 
 http POST localhost:8082/reserves userId="2" courtId="1" courtName="serve" <br>
 http POST localhost:8082/reserves userId="3" courtId="1" courtName="serve" <br>
@@ -61,7 +61,7 @@ http get localhost:8082/reserves<br>
 http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 44 43](https://github.com/user-attachments/assets/785b1625-ff03-41f7-bd09-3498c2866a11) <br>
     
-  2) 코트를 취소하면, myPage에 상태 "C"로 갱신된다.<br>
+  2)코트를 취소하면, myPage에 상태 "C"로 갱신된다.<br>
   
 http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 49 01](https://github.com/user-attachments/assets/b0e88999-67a0-4995-8e35-4e28d9f7be96) <br>
