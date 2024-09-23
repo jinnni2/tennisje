@@ -66,7 +66,13 @@ public class Reserve {
     //<<< Clean Arch / Port Method
     public static void updateStatus(FullyBooked fullyBooked) {
         //implement business logic here:
+        repository().findById(fullyBooked.getReserveId()).ifPresent(reserve->{
+            
+            reserve.setStatus("Fail"); // do something
+            repository().save(reserve);
 
+
+         });
         /** Example 1:  new item 
         Reserve reserve = new Reserve();
         repository().save(reserve);

@@ -40,7 +40,14 @@ public class Machine {
     //<<< Clean Arch / Port Method
     public static void cleanMachine(CourtReserved courtReserved) {
         //implement business logic here:
+        Machine machine = new Machine();
+        machine.setCourtId(courtReserved.getCourtId());
+        machine.setReserveId(courtReserved.getId());
+        machine.setStatus("Clean Complete");
+        repository().save(machine);
 
+        MachineCleaned machineCleaned = new MachineCleaned(machine);
+        machineCleaned.publishAfterCommit();
         /** Example 1:  new item 
         Machine machine = new Machine();
         repository().save(machine);

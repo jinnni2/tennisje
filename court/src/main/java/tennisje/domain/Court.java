@@ -48,6 +48,21 @@ public class Court {
     //<<< Clean Arch / Port Method
     public static void decreaseCourt(MachineCleaned machineCleaned) {
         //implement business logic here:
+        repository().findById(machineCleaned.getCourtId()).ifPresent(court->{
+            
+            //court // do something
+            if(court.getQty() >= 1){
+                court.setQty(court.getQty() - 1);
+                repository().save(court);
+                CourtDecreased courtDecreased = new CourtDecreased(court);
+                courtDecreased.publishAfterCommit();
+            } else{
+                FullyBooked fullyBooked = new FullyBooked(court);
+                fullyBooked.setReserveId(machineCleaned.getReserveId());
+                fullyBooked.publishAfterCommit();
+            }
+
+         });
 
         /** Example 1:  new item 
         Court court = new Court();
@@ -80,6 +95,16 @@ public class Court {
     //<<< Clean Arch / Port Method
     public static void increaseCourt(CourtCanceled courtCanceled) {
         //implement business logic here:
+        repository().findById(courtCanceled.getCourtId()).ifPresent(court->{
+            
+            //court // do something
+            court.setQty(court.getQty() + 1);
+            repository().save(court);
+
+            CourtIncreased courtIncreased = new CourtIncreased(court);
+            courtIncreased.publishAfterCommit();
+
+         });
 
         /** Example 1:  new item 
         Court court = new Court();
