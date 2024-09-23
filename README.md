@@ -39,7 +39,7 @@
 ![스크린샷 2024-09-24 오전 12 47 44](https://github.com/user-attachments/assets/865871e6-fb06-4ade-85c2-0331a04e5eb9) <br>
 
 - 보상처리 - Compensation
-  1) 예약가능한 코트가 없는 경우, 예약이 실패처리된다
+  1) 예약가능한 코트가 없는 경우, 예약이 실패처리된다<br>
   http POST localhost:8082/reserves userId="2" courtId="1" courtName="serve" <br>
   http POST localhost:8082/reserves userId="3" courtId="1" courtName="serve" <br>
   http POST localhost:8082/reserves userId="4" courtId="1" courtName="serve" <br>
@@ -52,15 +52,15 @@
 - 단일 진입점 - Gateway
   ???
 - 분산 데이터 프로젝션 - CQRS
-  1) 코트를 예약하면, myPage에 상태 "R"로 등록된다.
+  1) 코트를 예약하면, myPage에 상태 "R"로 등록된다.<br>
   http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 44 43](https://github.com/user-attachments/assets/785b1625-ff03-41f7-bd09-3498c2866a11) <br>
     
-  2) 코트를 취소하면, myPage에 상태 "C"로 갱신된다.
+  2) 코트를 취소하면, myPage에 상태 "C"로 갱신된다.<br>
   http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 49 01](https://github.com/user-attachments/assets/b0e88999-67a0-4995-8e35-4e28d9f7be96) <br>
 
-  3) 코트 예약에 실패하면, myPage에 상태 "C"로 갱신된다.
+  3) 코트 예약에 실패하면, myPage에 상태 "C"로 갱신된다.<br>
 ![스크린샷 2024-09-24 오전 12 56 26](https://github.com/user-attachments/assets/8fe39382-dc09-4c05-9aa9-93f8b5ad84bc) <br>
 
 
