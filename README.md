@@ -16,7 +16,8 @@
 
 
 ## 클라우드 네이티브 개발 MSA (Dev)
-- 분산트랜잭션 - Saga
+- 분산트랜잭션 - Saga<br>
+  
   1)코트정보를 생성한다<br>
   
 http POST localhost:8084/courts courtName="serve" qty="2"<br>
@@ -56,7 +57,7 @@ http get localhost:8082/reserves<br>
 - 단일 진입점 - Gateway
   ???
 - 분산 데이터 프로젝션 - CQRS
-  1) 코트를 예약하면, myPage에 상태 "R"로 등록된다.<br>
+  1)코트를 예약하면, myPage에 상태 "R"로 등록된다.<br>
 
 http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 44 43](https://github.com/user-attachments/assets/785b1625-ff03-41f7-bd09-3498c2866a11) <br>
