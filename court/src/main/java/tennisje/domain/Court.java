@@ -24,6 +24,8 @@ public class Court {
 
     private Integer qty;
 
+    private Long reserveId;
+
     @PostUpdate
     public void onPostUpdate() {
         CourtDecreased courtDecreased = new CourtDecreased(this);

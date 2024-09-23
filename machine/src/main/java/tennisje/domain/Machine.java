@@ -22,6 +22,8 @@ public class Machine {
 
     private String status;
 
+    private Long reserveId;
+
     @PostUpdate
     public void onPostUpdate() {
         MachineCleaned machineCleaned = new MachineCleaned(this);

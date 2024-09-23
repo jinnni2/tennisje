@@ -69,6 +69,7 @@
                     { text: "id", value: "id" },
                     { text: "courtId", value: "courtId" },
                     { text: "status", value: "status" },
+                    { text: "reserveId", value: "reserveId" },
                 ],
             machine : [],
             newValue: {},
@@ -88,6 +89,7 @@
             this.newValue = {
                 'courtId': 0,
                 'status': '',
+                'reserveId': 0,
             }
         },
         methods: {

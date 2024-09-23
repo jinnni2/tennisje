@@ -111,6 +111,7 @@
             me.newValue = {
                 'courtId': 0,
                 'status': '',
+                'reserveId': 0,
             }
         },
         methods:{

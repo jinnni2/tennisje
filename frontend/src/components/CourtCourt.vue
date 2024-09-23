@@ -18,6 +18,7 @@
         <v-card-text>
             <String label="CourtName" v-model="value.courtName" :editMode="editMode" :inputUI="''"/>
             <Number label="Qty" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
+            <Number label="ReserveId" v-model="value.reserveId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

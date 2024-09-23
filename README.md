@@ -39,11 +39,11 @@ mvn spring-boot:run
 ```
 - machine
 ```
- http :8088/machines id="id" courtId="courtId" status="status" 
+ http :8088/machines id="id" courtId="courtId" status="status" reserveId="reserveId" 
 ```
 - court
 ```
- http :8088/courts id="id" courtName="courtName" qty="qty" 
+ http :8088/courts id="id" courtName="courtName" qty="qty" reserveId="reserveId" 
 ```
 - mypage
 ```

@@ -111,6 +111,7 @@
             me.newValue = {
                 'courtName': '',
                 'qty': 0,
+                'reserveId': 0,
             }
         },
         methods:{
