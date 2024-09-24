@@ -89,27 +89,48 @@ http get localhost:8085/reservationLists<br>
 1)docker build & push
 ```
 mvn package -B -Dmaven.test.skip=true
-
-docker login
-docker build -t jinnni2/court:v1 .
-docker push jinnni2/court:v1
-
-docker build -t jinnni2/gateway:v1 .
-docker push jinnni2/gateway:v1 
-
-docker build -t jinnni2/machine:v1 .
-docker push jinnni2/machine:v1 
-
-docker build -t jinnni2/mypage:v1 .
-docker push jinnni2/mypage:v1 
-
-docker build -t jinnni2/reserve:v1 .     
-docker push jinnni2/reserve:v1 
-
-docker images
+docker build -t user12.azurecr.io/court:v1 .
+docker push user12.azurecr.io/court:v1
+az acr build --registry user12 --image user12.azurecr.io/court:v1 .
 ```
-![image](https://github.com/user-attachments/assets/52abe404-8b62-4a65-a7e1-ab11ea6c94c1) <br>
-![image](https://github.com/user-attachments/assets/7b872b6e-7e7b-4d99-861b-a4ff99874596) <br>
+![image](https://github.com/user-attachments/assets/43ec1dfe-1b6b-4120-9695-732b68c15141)<br>
+
+2)서비스 배포<br>
+```
+kubectl create deploy court --image user12.azurecr.io/court:v1
+kubectl expose deploy court --type=LoadBalancer --port=8080
+kubectl get service
+```
+![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
+
+- 컨테이너 자동확장 (HPA) <br>
+1)siege pod 생성
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: siege
+spec:
+  containers:
+  - name: siege
+    image: apexacme/siege-nginx
+EOF
+```
+2)오토스케일링 설정 명령어 호출
+```
+kubectl top pods
+kubectl autoscale deployment court --cpu-percent=20 --min=1 --max=3
+kubectl get hpa
+```
+![image](https://github.com/user-attachments/assets/8980eac3-2253-479d-8285-902b0789054c) <br>
+
+3)deployment.yaml 수정 후 다시배포
+```
+
+```
+
+3) 
 
 # 
 
