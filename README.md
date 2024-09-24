@@ -225,7 +225,20 @@ EOF
 3)마운트확인
 ![image](https://github.com/user-attachments/assets/4f70c37d-011f-4a12-a37c-8b9fb8b206d3)<br>
 > 다른 Pod에서 파일 확인<br>
-![image](https://github.com/user-attachments/assets/12f5f190-91d5-4d91-b391-e226dfff0f95)
+![image](https://github.com/user-attachments/assets/12f5f190-91d5-4d91-b391-e226dfff0f95)<br>
+
+- 셀프 힐링/무정지배포 - Liveness/Rediness Probe<br>
+1)설정 없이 배포시 중단됨<br>
+![image](https://github.com/user-attachments/assets/b9bd64cf-679a-4a2a-99a4-caee2b804176)<br>
+2)Rediness Probe 설정<br>
+![image](https://github.com/user-attachments/assets/d609a5dc-c312-43e8-97fd-01fea58d8492)<br>
+3)중단없이 배포 완료<br>
+![image](https://github.com/user-attachments/assets/04a7f8c6-6922-4bf5-90d3-555a49ceae23)<br>
+...
+![image](https://github.com/user-attachments/assets/96a914f3-2883-4c7f-8624-780471ef77ee)
+![image](https://github.com/user-attachments/assets/374236cc-6a7b-4669-86f2-fcbf8e9ecc10)
+
+- 서비스 메쉬 응용 - Mesh
 
 
 
