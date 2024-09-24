@@ -103,6 +103,10 @@ kubectl get service
 ```
 ![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
 
+3)Jenkins<br>
+공용IP : 4.230.17.134 <br>
+
+
 - 컨테이너 자동확장 (HPA) <br>
 1)siege pod 생성
 ```
@@ -248,8 +252,19 @@ istioctl kube-inject -f court-deploy.yaml > output.yaml
 kubectl label namespace tennisje istio-injection=enabled
 ```
 3)injection 확인<br>
-![image](https://github.com/user-attachments/assets/3bf9e2a2-e563-41d0-8c1e-5f50f379bdc3)
-![image](https://github.com/user-attachments/assets/15b85a9d-9124-4593-8922-d3e5d4f8f466)
+![image](https://github.com/user-attachments/assets/3bf9e2a2-e563-41d0-8c1e-5f50f379bdc3)<br>
+![image](https://github.com/user-attachments/assets/15b85a9d-9124-4593-8922-d3e5d4f8f466)<br>
+
+- 통합모니터링 -Loggregation/Monitoring
+1)Grafana 서비스 open<br>
+```
+kubectl patch service/grafana -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+```
+2)모니터링<br>
+![image](https://github.com/user-attachments/assets/651849ff-fec9-4901-984c-aeb27f88c070)<br>
+
+
+
 
 
 
