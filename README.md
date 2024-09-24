@@ -238,7 +238,20 @@ EOF
 ![image](https://github.com/user-attachments/assets/96a914f3-2883-4c7f-8624-780471ef77ee)
 ![image](https://github.com/user-attachments/assets/374236cc-6a7b-4669-86f2-fcbf8e9ecc10)
 
-- 서비스 메쉬 응용 - Mesh
+- 서비스 메쉬 응용 - Mesh<br>
+1)istio설치<br>
+![image](https://github.com/user-attachments/assets/5c3370c6-72bf-46ae-a51c-a265a5879314)<br>
+2)Istioctl kube-inject<br>
+```
+kubectl apply --namespace tennisje -f <(istioctl kube-inject -f court-deploy.yaml)
+istioctl kube-inject -f court-deploy.yaml > output.yaml
+kubectl label namespace tennisje istio-injection=enabled
+```
+3)injection 확인
+![image](https://github.com/user-attachments/assets/3bf9e2a2-e563-41d0-8c1e-5f50f379bdc3)
+![image](https://github.com/user-attachments/assets/15b85a9d-9124-4593-8922-d3e5d4f8f466)
+
+
 
 
 
