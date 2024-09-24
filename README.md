@@ -106,7 +106,7 @@ kubectl get service
 - 컨테이너 자동확장 (HPA) <br>
 1)siege pod 생성
 ```
-kubectl apply -f - <<EOF
+kubectl apply --namespace tennisje -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -116,16 +116,18 @@ spec:
   - name: siege
     image: apexacme/siege-nginx
 EOF
+pod/siege created
 ```
 2)오토스케일링 설정 명령어 호출
 ```
-kubectl top pods
-kubectl autoscale deployment court --cpu-percent=20 --min=1 --max=3
-kubectl get hpa
+kubectl top pods --namespace tennisje
+kubectl autoscale deployment court --cpu-percent=20 --min=1 --max=3 --namespace tennisje
+kubectl get hpa --namespace tennisje
 ```
-![image](https://github.com/user-attachments/assets/8980eac3-2253-479d-8285-902b0789054c) <br>
+![image](https://github.com/user-attachments/assets/5fc4dd36-a91b-4163-8ad5-20b564af7dbf) <br>
+![image](https://github.com/user-attachments/assets/f88723e4-984c-4806-a196-b5b72e72b7e9)
 
-3)deployment.yaml 수정 후 다시배포
+3)deployment.yaml 수정 후 다시배포<br>
 ```
       containers:
         - name: court
@@ -139,8 +141,23 @@ kubectl get hpa
 ```
 kubectl apply -f court-deploy.yaml
 ```
+![image](https://github.com/user-attachments/assets/4c2217a5-9568-4df2-870f-67c0402cf2eb)<br>
 
-3) 
+3)부하테스트<br>
+```
+kubectl exec --namespace tennisje -it siege -- /bin/bash
+siege -c20 -t20S -v http://20.249.191.3:8080/courts
+```
+> pod 생성<br>
+![image](https://github.com/user-attachments/assets/9bfeb530-b089-49ea-be89-8b4e1838f4d0)<br>
+```
+kubectl get hpa
+```
+![image](https://github.com/user-attachments/assets/0f4ad2c8-8b03-4aff-9e17-5077f9f00fe4)<br>
+<br>
+
+- 컨테이너로부터 환경분리 - ConfigMap/Secret
+
 
 # 
 
