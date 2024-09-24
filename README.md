@@ -181,10 +181,92 @@ spec:
 ```
 kubectl exec --namespace tennisje pod/court-595dcffddf-t5w46 -- env
 ```
-![image](https://github.com/user-attachments/assets/e44607c0-bcfc-43d8-8220-5d1ac5d5308f)
+![image](https://github.com/user-attachments/assets/e44607c0-bcfc-43d8-8220-5d1ac5d5308f)<br>
 
 
 - 클라우드 스토리지 확인 - PVC<br>
+1)PVC생성<br>
+![image](https://github.com/user-attachments/assets/6c98b517-4395-4c8d-ae6b-9689e20fed02)<br>
+![image](https://github.com/user-attachments/assets/1bf9f07c-bb86-44f8-835d-874051fc430d) <br>
+
+2)NFS볼륨을 가지는 서비스 배포<br>
+```
+kubectl apply --namespace tennisje -f - <<EOF
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: court
+  labels: 
+    app: "court"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "court"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "court"
+    spec: 
+      containers: 
+      - name: "court"
+        image: "user12.azurecr.io/court:v1"
+        ports: 
+          - containerPort: 8080
+        volumeMounts:
+          - mountPath: "/mnt/data"
+            name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: azurefile  
+EOF
+```
+3)마운트확인
+![image](https://github.com/user-attachments/assets/4f70c37d-011f-4a12-a37c-8b9fb8b206d3)<br>
+> 다른 Pod에서 파일 확인<br>
+![image](https://github.com/user-attachments/assets/12f5f190-91d5-4d91-b391-e226dfff0f95)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
