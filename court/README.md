@@ -15,7 +15,7 @@ docker run username/court:v1
 ```
 
 ## Push images and running in Kubernetes
-
+ 
 ```
 docker login 
 # in case of docker hub, enter your username and password
