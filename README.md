@@ -104,7 +104,7 @@ kubectl get service
 ![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
 
 3)Jenkins<br>
-공용IP : 4.230.17.134 <br>
+
 
 
 - 컨테이너 자동확장 (HPA) <br>
