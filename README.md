@@ -84,9 +84,32 @@ http get localhost:8085/reservationLists<br>
 http get localhost:8085/reservationLists<br>
 ![스크린샷 2024-09-24 오전 12 49 01](https://github.com/user-attachments/assets/b0e88999-67a0-4995-8e35-4e28d9f7be96) <br>
 
+## 클라우드 네이티브 운영 (Ops, PaaS)
+- 클라우드 배포 - Container 운영<br>
+1)docker build & push
+```
+mvn package -B -Dmaven.test.skip=true
 
+docker login
+docker build -t jinnni2/court:v1 .
+docker push jinnni2/court:v1
 
+docker build -t jinnni2/gateway:v1 .
+docker push jinnni2/gateway:v1 
 
+docker build -t jinnni2/machine:v1 .
+docker push jinnni2/machine:v1 
+
+docker build -t jinnni2/mypage:v1 .
+docker push jinnni2/mypage:v1 
+
+docker build -t jinnni2/reserve:v1 .     
+docker push jinnni2/reserve:v1 
+
+docker images
+```
+![image](https://github.com/user-attachments/assets/52abe404-8b62-4a65-a7e1-ab11ea6c94c1) <br>
+![image](https://github.com/user-attachments/assets/7b872b6e-7e7b-4d99-861b-a4ff99874596) <br>
 
 # 
 
