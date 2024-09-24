@@ -156,7 +156,36 @@ kubectl get hpa
 ![image](https://github.com/user-attachments/assets/0f4ad2c8-8b03-4aff-9e17-5077f9f00fe4)<br>
 <br>
 
-- 컨테이너로부터 환경분리 - ConfigMap/Secret
+- 컨테이너로부터 환경분리 - ConfigMap/Secret<br>
+
+1)Configmap 생성<br>
+```
+kubectl create configmap my-config --from-literal=key1=value1 --from-literal=key2=value2 --namespace tennisje
+```
+2)배포yaml 변경<br>
+```
+spec:
+      containers:
+        - name: court
+          image: user12.azurecr.io/court:v1
+          ports:
+            - containerPort: 8080
+          env:
+          - name: PROFILE
+            valueFrom:
+              configMapKeyRef:
+                name: my-config
+                key: key1
+```
+3)pod 환경변수 확인<br>
+```
+kubectl exec --namespace tennisje pod/court-595dcffddf-t5w46 -- env
+```
+![image](https://github.com/user-attachments/assets/e44607c0-bcfc-43d8-8220-5d1ac5d5308f)
+
+
+- 클라우드 스토리지 확인 - PVC<br>
+
 
 
 # 
