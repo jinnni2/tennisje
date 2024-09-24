@@ -97,8 +97,8 @@ az acr build --registry user12 --image user12.azurecr.io/court:v1 .
 
 2)서비스 배포<br>
 ```
-kubectl create deploy court --image user12.azurecr.io/court:v1
-kubectl expose deploy court --type=LoadBalancer --port=8080
+kubectl create deploy court --image user12.azurecr.io/court:v1 --namespace tennisje
+kubectl expose deploy court --type=LoadBalancer --port=8080 --namespace tennisje
 kubectl get service
 ```
 ![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
@@ -127,7 +127,17 @@ kubectl get hpa
 
 3)deployment.yaml 수정 후 다시배포
 ```
-
+      containers:
+        - name: court
+          image: user12.azurecr.io/court:v1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "200m"       
+```
+```
+kubectl apply -f court-deploy.yaml
 ```
 
 3) 
