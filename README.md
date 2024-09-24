@@ -118,7 +118,7 @@ spec:
 EOF
 pod/siege created
 ```
-2)오토스케일링 설정 명령어 호출
+2)오토스케일링 설정 명령어 호출<br>
 ```
 kubectl top pods --namespace tennisje
 kubectl autoscale deployment court --cpu-percent=20 --min=1 --max=3 --namespace tennisje
@@ -222,7 +222,7 @@ spec:
           claimName: azurefile  
 EOF
 ```
-3)마운트확인
+3)마운트확인<br>
 ![image](https://github.com/user-attachments/assets/4f70c37d-011f-4a12-a37c-8b9fb8b206d3)<br>
 > 다른 Pod에서 파일 확인<br>
 ![image](https://github.com/user-attachments/assets/12f5f190-91d5-4d91-b391-e226dfff0f95)<br>
@@ -235,8 +235,8 @@ EOF
 3)중단없이 배포 완료<br>
 ![image](https://github.com/user-attachments/assets/04a7f8c6-6922-4bf5-90d3-555a49ceae23)<br>
 ...
-![image](https://github.com/user-attachments/assets/96a914f3-2883-4c7f-8624-780471ef77ee)
-![image](https://github.com/user-attachments/assets/374236cc-6a7b-4669-86f2-fcbf8e9ecc10)
+![image](https://github.com/user-attachments/assets/96a914f3-2883-4c7f-8624-780471ef77ee)<br>
+![image](https://github.com/user-attachments/assets/374236cc-6a7b-4669-86f2-fcbf8e9ecc10)<br>
 
 - 서비스 메쉬 응용 - Mesh<br>
 1)istio설치<br>
@@ -247,7 +247,7 @@ kubectl apply --namespace tennisje -f <(istioctl kube-inject -f court-deploy.yam
 istioctl kube-inject -f court-deploy.yaml > output.yaml
 kubectl label namespace tennisje istio-injection=enabled
 ```
-3)injection 확인
+3)injection 확인<br>
 ![image](https://github.com/user-attachments/assets/3bf9e2a2-e563-41d0-8c1e-5f50f379bdc3)
 ![image](https://github.com/user-attachments/assets/15b85a9d-9124-4593-8922-d3e5d4f8f466)
 
