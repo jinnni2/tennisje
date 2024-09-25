@@ -85,6 +85,8 @@ http get localhost:8088/machines/1<br>
 http get localhost:8088/courts/1<br>
 ```
 ![스크린샷 2024-09-24 오전 1 26 20](https://github.com/user-attachments/assets/d9984735-54a8-4848-b142-7f879e01ca48)<br>
+
+4)클라우드 배포 후 gateway로 코트 정보 얻기
 ![image](https://github.com/user-attachments/assets/6c903df1-640d-4679-a522-93801342c3a4)<br>
 
 ## 분산 데이터 프로젝션 - CQRS<br>
