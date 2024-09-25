@@ -248,14 +248,14 @@ spec:
 EOF
 ```
 3)마운트확인<br>
-> pod 확인<br>
+- pod 확인<br>
 ![image](https://github.com/user-attachments/assets/6cf84b90-2389-461c-b2b4-f8d7452f630c)<br>
-> 파일생성 <br>
+- 파일생성 <br>
 ![image](https://github.com/user-attachments/assets/3dfaafcb-1628-43af-8001-75de9c7456ef)
 <br>
-> 다른 Pod에서 파일 확인<br>
-![image](https://github.com/user-attachments/assets/3e027259-b907-49be-adc6-07907819e97e)
-<br>
+- 다른 Pod에서 파일 확인<br>
+![image](https://github.com/user-attachments/assets/144981c9-bbde-4b54-a9ae-2ed3c35d13bc)<br>
+
 
 ## 셀프 힐링/무정지배포 - Liveness/Rediness Probe<br>
 1)설정 없이 배포시 중단됨<br>
