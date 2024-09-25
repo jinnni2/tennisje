@@ -110,7 +110,7 @@ az acr build --registry user12 --image user12.azurecr.io/court:v1 .
 ```
 ![image](https://github.com/user-attachments/assets/43ec1dfe-1b6b-4120-9695-732b68c15141)<br>
 
-2)서비스 배포<br>
+2)서비스 배포 로컬 확인<br>
 ```
 kubectl create deploy court --image user12.azurecr.io/court:v1 --namespace tennisje
 kubectl expose deploy court --type=LoadBalancer --port=8080 --namespace tennisje
@@ -119,7 +119,8 @@ kubectl get service
 ![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
 
 3)Jenkins<br>
-![image](https://github.com/user-attachments/assets/9c4dd7f6-495d-411a-9a34-b7bc9998109f)
+![image](https://github.com/user-attachments/assets/9c4dd7f6-495d-411a-9a34-b7bc9998109f)<br>
+![image](https://github.com/user-attachments/assets/88f46fda-03ab-4466-a403-7b64ac521d94)<br>
 
 
 
