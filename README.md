@@ -227,7 +227,7 @@ spec:
   selector: 
     matchLabels: 
       app: "court"
-  replicas: 1
+  replicas: 2
   template: 
     metadata: 
       labels: 
