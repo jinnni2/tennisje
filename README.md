@@ -105,6 +105,7 @@ kubectl get service
 ![image](https://github.com/user-attachments/assets/e107cb0e-294e-4aaf-a89f-d726574ef615)<br>
 
 3)Jenkins<br>
+![image](https://github.com/user-attachments/assets/9c4dd7f6-495d-411a-9a34-b7bc9998109f)
 
 
 
@@ -123,7 +124,7 @@ spec:
 EOF
 pod/siege created
 ```
-2)오토스케일링 설정 명령어 호출<br>
+2)오토스케일 설정 명령어 호출<br>
 ```
 kubectl top pods --namespace tennisje
 kubectl autoscale deployment court --cpu-percent=20 --min=1 --max=3 --namespace tennisje
