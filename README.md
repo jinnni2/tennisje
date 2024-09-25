@@ -110,8 +110,7 @@ docker build -t user12.azurecr.io/court:v1 .
 docker push user12.azurecr.io/court:v1
 az acr build --registry user12 --image user12.azurecr.io/court:v1 .
 ```
-![image](https://github.com/user-attachments/assets/3c8b85c9-eaa2-4813-91d3-557be8f34611)
-<br>
+![image](https://github.com/user-attachments/assets/7d4002f5-ddc0-412a-a162-fd881e8e156e)<br>
 
 2)서비스 배포 로컬 확인<br>
 ```
