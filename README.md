@@ -85,6 +85,7 @@ http get localhost:8088/machines/1<br>
 http get localhost:8088/courts/1<br>
 ```
 ![스크린샷 2024-09-24 오전 1 26 20](https://github.com/user-attachments/assets/d9984735-54a8-4848-b142-7f879e01ca48)<br>
+![image](https://github.com/user-attachments/assets/6c903df1-640d-4679-a522-93801342c3a4)<br>
 
 ## 분산 데이터 프로젝션 - CQRS<br>
 
@@ -109,7 +110,8 @@ docker build -t user12.azurecr.io/court:v1 .
 docker push user12.azurecr.io/court:v1
 az acr build --registry user12 --image user12.azurecr.io/court:v1 .
 ```
-![image](https://github.com/user-attachments/assets/43ec1dfe-1b6b-4120-9695-732b68c15141)<br>
+![image](https://github.com/user-attachments/assets/3c8b85c9-eaa2-4813-91d3-557be8f34611)
+<br>
 
 2)서비스 배포 로컬 확인<br>
 ```
