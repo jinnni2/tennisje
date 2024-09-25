@@ -21,7 +21,7 @@ pipeline {
         stage('Maven Build') {
             steps {
                 withMaven(maven: 'Maven') {
-                    sh 'mvn package -DskipTests'
+                    sh 'mvn package -DskipTests -f court/pom.xml'
                 }
             }
         }
